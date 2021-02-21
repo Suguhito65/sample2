@@ -12,6 +12,7 @@ services:
       - ./backend:/work
   # nginx
   web:
+    image: nginx:1.18-alpine
     container_name: app2_nginx
     ports:
       - 10080:80
@@ -22,16 +23,7 @@ services:
   # MySQL
   db:
     container_name: app2_db
-    image: mysql:8.0
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_DATABASE: development
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: m_user
-      MYSQL_PASSWORD: m_user
-      TZ: 'Asia/Tokyo'
+    build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
   # phpMyAdmin
