@@ -1,9 +1,9 @@
 FROM mysql:8.0
 
 ENV MYSQL_DATABASE=laravel_local \
-  MYSQL_USER=phper \
-  MYSQL_PASSWORD=secret \
-  MYSQL_ROOT_PASSWORD=secret \
+  MYSQL_USER=root \
+  MYSQL_PASSWORD=root \
+  MYSQL_ROOT_PASSWORD=root \
   TZ=Asia/Tokyo
 
 COPY ./my.cnf /etc/mysql/conf.d/my.cnf

@@ -24,16 +24,7 @@ services:
   db:
     container_name: app2_db
     build: ./infra/mysql
+    ports:
+      - 4306:3306
     volumes:
       - db-store:/var/lib/mysql
-  # phpMyAdmin
-  phpmyadmin:
-    container_name: app2_pma
-    image: phpmyadmin/phpmyadmin
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=mysql
-      - PMA_USER=root
-      - PMA_PASSWORD=root
-    ports:
-      - 8080:80
