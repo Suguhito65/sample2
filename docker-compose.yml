@@ -12,7 +12,7 @@ services:
       - ./backend:/work
   # nginx
   web:
-    image: nginx:1.18-alpine
+    image: nginx:1.18-alpine # nginxは1.10, 1.12 等の偶数が安定バージョン
     container_name: app2_nginx
     ports:
       - 10080:80
@@ -25,6 +25,6 @@ services:
     container_name: app2_db
     build: ./infra/mysql
     ports:
-      - 4306:3306
+      - 4306:3306 # Sequel Aceを使用する際
     volumes:
       - db-store:/var/lib/mysql
