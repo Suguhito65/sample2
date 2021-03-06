@@ -6,14 +6,14 @@ volumes:
 services:
   # PHP
   app:
-    container_name: app2_php
+    container_name: todo_php
     build: ./infra/php
     volumes:
       - ./backend:/work
   # nginx
   web:
     image: nginx:1.18-alpine # nginxは1.10, 1.12 等の偶数が安定バージョン
-    container_name: app2_nginx
+    container_name: todo_nginx
     ports:
       - 10080:80
     volumes:
@@ -22,7 +22,7 @@ services:
     working_dir: /work
   # MySQL
   db:
-    container_name: app2_db
+    container_name: todo_db
     build: ./infra/mysql
     ports:
       - 4306:3306 # Sequel Aceを使用する際
