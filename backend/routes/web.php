@@ -29,4 +29,4 @@ use Inertia\Inertia;
 // })->name('dashboard');
 
 Route::get('/', 'TodosController@index');
-Route::resource('todos','TodosController');
+Route::resource('todos','TodosController', ['only' => ['store', 'edit', 'update', 'destroy']]);
