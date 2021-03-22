@@ -16,6 +16,7 @@ class TodosController extends Controller
         $todo = new Todo();
         $todo->body = $request->body;
         $todo->save();
+        \Session::flash('err_msg', '追加しました。');
         return redirect('/');
     }
 
@@ -26,11 +27,13 @@ class TodosController extends Controller
     public function update(Request $request,todo $todo) {
         $todo->body = $request->body;
         $todo->save();
+        \Session::flash('err_msg', '編集しました。');
         return redirect('/');
     }
 
     public function destroy(todo $todo) {
         $todo->delete();
-       return redirect('/');
+        \Session::flash('err_msg', '削除しました。');
+        return redirect('/');
     }
 }
