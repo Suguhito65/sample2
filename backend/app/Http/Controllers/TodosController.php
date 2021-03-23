@@ -9,7 +9,7 @@ class TodosController extends Controller
 {
     public function index() {
         $todos = Todo::all();
-        return view('todos.index')->with('todos',$todos);
+        return view('todos.index')->with('todos', $todos);
     }
 
     public function store(Request $request) {
@@ -21,13 +21,13 @@ class TodosController extends Controller
     }
 
     public function edit(todo $todo) {
-        return view('todos.edit')->with('todo',$todo);
+        return view('todos.edit')->with('todo', $todo);
     }
 
-    public function update(Request $request,todo $todo) {
+    public function update(Request $request, todo $todo) {
         $todo->body = $request->body;
         $todo->save();
-        \Session::flash('err_msg', '編集しました。');
+        \Session::flash('err_msg', '更新しました。');
         return redirect('/');
     }
 
