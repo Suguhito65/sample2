@@ -8,11 +8,10 @@
   </head>
   <body>
     <div class="container" style="margin-top:50px;">
-      <h1>Todoリスト追加</h1>
+    <h1>Todoリスト追加</h1>
       <form action="{{ url('/todos')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
-          <label >やることを追加してください</label>
           <input type="text" name="body"class="form-control" style="max-width:1000px;">
         </div>
         <button type="submit" class="btn btn-primary">追加する</button>
@@ -66,13 +65,13 @@
       (function() {
         'use strict';
 
-        var cmds = document.getElementsByClassName('delete');
-        var i;
+        const cmds = document.getElementsByClassName('delete');
+        let i;
 
         for (i = 0; i < cmds.length; i++) {
           cmds[i].addEventListener('click', function(e) {
             e.preventDefault();
-            if (confirm('are you sure?')) {
+            if (confirm('本当に削除しますか？')) {
               document.getElementById('form_' + this.dataset.id).submit();
             }
           });

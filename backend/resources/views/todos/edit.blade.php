@@ -13,7 +13,6 @@
         {{csrf_field()}}
         {{ method_field('patch')}}
         <div class="form-group">
-          <label >やることを更新してください</label>
           <input type="text" name="body"class="form-control" value="{{ $todo->body }}" style="max-width:1000px;">
         </div>
         <button type="submit" class="btn btn-primary">更新する</button>
