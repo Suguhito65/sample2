@@ -35,14 +35,6 @@
                   <button type="submit" class="btn btn-success">編集</button>
                 </form>
               </td>
-              <!-- 削除ボタン -->
-              <!-- <td>
-                <form action="{{url('/todos', $todo->id)}}" method="post">
-                  {{ csrf_field() }}
-                  {{ method_field('delete') }}
-                  <button type="submit" class="delete btn btn-danger">削除</button>
-                </form>
-              </td> -->
               <!-- 削除した際にポップ画面で確認をする -->
               <td>
                 <a class="delete btn btn-danger" data-id="{{ $todo->id }}" href="#">削除</a>
